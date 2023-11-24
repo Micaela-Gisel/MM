@@ -1,0 +1,104 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/0a0ef2c2b8.js" crossorigin="anonymous"></script>
+    <title>Grupo Oeste</title>
+    
+</head>
+<body>
+
+<header>
+    <img src="Logo-sinFondo.png" alt="Logo de Mi Sitio">
+        <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="materiales.html">Materiales</a></li>
+            <li><a href="mano_de_obra.html">Mano de Obra</a></li>
+            <li><a href="inventario2.php">Inventario Mano de Obra</a></li>
+            <li><a href="inventariomateriales.php">Inventario Materiales</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="gallery">
+    <img src="Grupo-Oeste.png" alt="img muestra">
+</div>
+<section>
+    <form action="form.php" method="post">
+        <h2>Presupuesto de Materiales</h2>
+        <br>
+        <label for="codigo">codigo</label>
+        <input type="text" id="codigo" name="codigo" placeholder="Ingrese el código" required>
+        <br>
+        <label for="denominacion">Denominación:</label>
+        <input type="text" id="denominacion" name="denominacion" placeholder="Ingrese la denominación" required>
+        <br>
+        <label for="marca">Marca:</label>
+        <input type="text" id="marca" name="marca" placeholder="Ingrese la marca" required>
+        <br>
+        <label for="modelo">Modelo o Características:</label>
+        <input type="text" id="modelo" name="modelo" placeholder="Ingrese el modelo o características" required>
+        <br>
+        <label for="tipo">Tipo:</label>
+        <input type="text" id="tipo" name="tipo" placeholder="Ingrese el tipo" required>
+        <br>
+        <label for="proveedor">Proveedor:</label>
+        <input type="text" id="proveedor" name="proveedor" placeholder="Ingrese el proveedor" required>
+        <br>
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" id="cantidad" name="cantidad" placeholder="Ingrese la cantidad" oninput="calcularSubtotal()" required>
+        <br>
+        <label for="precioUnitario">Precio Unitario:</label>
+        <input type="number" id="precioUnitario" name="precioUnitario" step="0.01" placeholder="Ingrese el precio unitario" oninput="calcularSubtotal()" required>
+        <br>
+        <label for="subtotal">Subtotal:</label>
+        <input type="number" id="subtotal" name="subtotal" readonly>
+        <br>
+        <label for="precioUnitarioCompra">Precio Unitario de compra facturado:</label>
+        <input type="number" id="precioUnitarioCompra"  name="precioUnitarioCompra" step="0.01" placeholder="Ingrese el precio unitario de compra" oninput="calcularTotal()" required>
+        <br>
+        <label for="cantidadAdquirida">Cantidad adquirida:</label>
+        <input type="number" id="cantidadAdquirida" name="cantidadAdquirida" placeholder="Ingrese la cantidad adquirida" oninput="calcularTotal()" required>
+        <br>
+        <label for="subtotalCompra">Subtotal:</label>
+        <input type="number" id="subtotalCompra" name="subtotalCompra" readonly>
+        <br>
+        <label for="total">Total:</label>
+        <input type="number" id="total" name="total" readonly>
+        <br>
+        <input type="submit" value="Enviar">
+    </form>
+    </section>
+    <script>
+        function calcularSubtotal() {
+            var cantidad = document.getElementById("cantidad").value;
+            var precioUnitario = document.getElementById("precioUnitario").value;
+            var subtotal = cantidad * precioUnitario;
+            document.getElementById("subtotal").value = subtotal.toFixed(2);
+        }
+    
+        function calcularTotal() {
+            var precioUnitarioCompra = document.getElementById("precioUnitarioCompra").value;
+            var cantidadAdquirida = document.getElementById("cantidadAdquirida").value;
+            var subtotalCompra = precioUnitarioCompra * cantidadAdquirida;
+            document.getElementById("subtotalCompra").value = subtotalCompra.toFixed(2);
+    
+            var total =  parseFloat(document.getElementById("subtotalCompra").value);
+            document.getElementById("total").value = total.toFixed(2);
+        }
+    </script>
+
+<footer> 
+
+    <div class="social-link">
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-linKedIn"></i>       
+   
+    </div>
+</footer>
+
+</body>
+</html>
+

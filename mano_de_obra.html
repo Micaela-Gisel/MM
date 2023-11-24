@@ -1,0 +1,99 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/0a0ef2c2b8.js" crossorigin="anonymous"></script>
+    <title>Grupo Oeste</title>
+    
+</head>
+<body>
+
+<header>
+    <img src="Logo-sinFondo.png" alt="Logo de Mi Sitio">
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="materiales.html">Materiales</a></li>
+            <li><a href="mano_de_obra.html">Mano de Obra</a></li>
+            <li><a href="inventario2.php">Inventario Mano de Obra</a></li>
+            <li><a href="inventariomateriales.php">Inventario Materiales</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="gallery">
+    <img src="Grupo-Oeste.png" alt="img muestra">
+</div>
+<section>
+    <form action="baseDatos.php" method="post">
+        <h1>Presupuesto Mano de Obra</h1>
+        <br>
+        <label for="id">Código</label>
+        <br>
+        <input type="text" id="id" name="id" placeholder="Ingrese el código del producto" required>
+        <br>
+        <label for="denominacion">Denominación:</label>
+        <br>
+        <input type="text" id="denominacion" name="denominacion" placeholder="Ingrese la denominación" required>
+        <br>
+        <label for="precioUnitario">Precio Unitario</label>
+        <br>
+        <input type="number" id="precioUnitario" name="precioUnitario" step="0.01" placeholder="Ingrese el precio unitario" oninput="calcularSubtotal()" required>
+        <br>
+        <label for="cantidadHoras">Cantidad horas</label>
+        <br>
+        <input type="number" id="cantidadHoras" name="cantidadHoras" placeholder="Ingrese la cantidad de horas" oninput="calcularSubtotal()" required>
+        <br>
+        <label for="cantObreros">Cantidad de Obreros:</label>
+        <br>
+        <input type="number" id="cantObreros" name="cantObreros" placeholder="Ingrese la cantidad de obreros" oninput="calcularSubtotal()" required>
+        <br>
+        <label for="subtotal">Subtotal:</label>
+        <br>
+        <input type="number" id="subtotal" name="subtotal" readonly>
+        <br>
+        <label for="total">Total:</label>
+        <br>
+        <input type="number" id="total" name= "total" readonly>
+        <br>
+        <input type="submit" value="Enviar" >
+        
+    </form>
+   
+    <br>
+    <script>
+        function calcularSubtotal() {
+            // Obtener los valores de los campos
+            var precioUnitario = document.getElementById("precioUnitario").value;
+            var cantidadHoras = document.getElementById("cantidadHoras").value;
+            var cantObreros = document.getElementById("cantObreros").value;
+    
+            // Calcular el subtotal multiplicando los valores
+            var subtotal = precioUnitario * cantidadHoras * cantObreros;
+    
+            // Mostrar el subtotal en el campo correspondiente
+            document.getElementById("subtotal").value = subtotal.toFixed(2);
+    
+            // Calcular el total (puedes ajustar esta fórmula según tus necesidades)
+            var total = ((subtotal * 21)/100)+subtotal;  // Por ejemplo, aplicar un 20% de impuestos
+    
+            // Mostrar el total en el campo correspondiente
+            document.getElementById("total").value = total.toFixed(2);
+        }
+    </script>
+</section>
+
+
+</body>
+<footer>
+    <footer> 
+
+        <div class="social-link">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-linKedIn"></i>       
+       
+        </div>
+</footer>
+</html>
