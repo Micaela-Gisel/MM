@@ -43,8 +43,15 @@
         <label for="tipo">Tipo:</label>
         <input type="text" id="tipo" name="tipo" placeholder="Ingrese el tipo" required>
         <br>
-        <label for="proveedor">Proveedor:</label>
-        <input type="text" id="proveedor" name="proveedor" placeholder="Ingrese el proveedor" required>
+        <label >Proveedor:</label>
+        <select id="proveedor" name="proveedor" required>
+            <option value="Nöllmann">Nöllmann</option>
+            <option value="Exemys">Exemys</option>
+            <option value="SEL Argentina">SEL Argentina</option>
+            <option value="Phoenix Contact">Phoenix Contact</option>
+            <br>
+        </select>
+        <br>
         <br>
         <label for="cantidad">Cantidad:</label>
         <input type="number" id="cantidad" name="cantidad" placeholder="Ingrese la cantidad" oninput="calcularSubtotal()" required>
